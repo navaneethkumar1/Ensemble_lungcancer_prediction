@@ -1,0 +1,8 @@
+setuptools
+Flask
+joblib
+Pillow
+numpy
+opencv-python
+scikit-learn
+gunicorn

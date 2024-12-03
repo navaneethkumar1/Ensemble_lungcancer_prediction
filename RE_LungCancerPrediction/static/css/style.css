@@ -1,0 +1,151 @@
+/* General body and background styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.background {
+    background-image: url('../WhatsApp\ Image\ 2024-12-03\ at\ 19.49.30_4ade838b.jpg');
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: center; /* Keeps the image centered */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+    position: absolute;
+    width: 100%;
+    height: 100%; /* Ensures full screen height */
+    z-index: -1;
+    filter: blur(4px); /* Adds slight blur to the background */
+}
+.heading{
+    font-size: 40px; /* Adjust size as needed */
+    font-weight: bold;
+    text-align: center;
+margin-top: 5px;
+    /* Enhanced gradient for better red visibility */
+    background: linear-gradient(45deg, #ff3b3b, #ff8c8c, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* Make the actual text transparent */
+    color: transparent;
+
+    /* Add shadow for contrast and visibility */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    
+}
+.overlay {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7); /* Darkened transparent background */
+    padding: 50px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgb(86, 84, 84); /* Added box-shadow for depth */
+}
+
+h1 {
+    font-size: 24px;
+    color: #FFEB3B;
+    margin-bottom:30px;
+}
+input[type="file"] {
+    padding: 20px 40px; /* Adjust padding for larger input field */
+    font-size: 18px; /* Slightly larger font size */
+    margin-bottom: 10px;
+    border-radius: 15px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    color: #fff; /* White text color */
+    border: 2px solid #FF6500; /* Orange border */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition effects */
+    cursor: pointer;
+}
+
+input[type="file"]:hover {
+    background-color: rgba(255, 101, 0, 0.8); /* Highlight effect on hover */
+    border-color: #e64a19; /* Darker orange border on hover */
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #FF6500; /* Orange button for file selector */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #e64a19; /* Darker orange on hover */
+}
+
+
+/* Style for the predict button */
+.predict-btn {
+    margin-top: 20px;
+    display: none;
+    width: auto;
+    text-align: center;
+}
+
+/* Style for submit button */
+button[type="submit"] {
+    padding: 10px 50px;
+    font-size: 20px;
+    background-color: #FF6500;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    align-content: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for submit button */
+button[type="submit"]:hover {
+    background-color: #e64a19;
+}
+
+/* Image container with flexbox */
+#uploadedImageContainer {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image style */
+#uploadedImage {
+    width: 40%; /* Keeps the image at a reasonable size */
+    height: 50%;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Adds space between image and button */
+}
+
+/* Error styling */
+#error {
+    color: red;
+}
+
+/* Result, symptoms, and treatment sections */
+#result, #symptoms, #treatment {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #fff;
+}
+*{
+    overflow-x: hidden;
+}
+#inputImage{
+    padding: 30px;
+    background-color: #de2222;
+}

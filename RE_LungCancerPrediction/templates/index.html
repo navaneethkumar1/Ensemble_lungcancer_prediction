@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Background image section -->
+    <div class="background"></div>
+
+    <!-- Overlay form -->
+    <div class="overlay">
+        <h1 class="heading">Lung Cancer Prediction</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <div class="inputimage">
+            <input type="file" id="imageInput" name="file" accept="image/*" required>
+        </div>
+            <div id="uploadedImageContainer">
+                <img id="uploadedImage" src="" alt="Uploaded Image Preview" style="display: none;" class="container">
+           
+            <div class="predict-btn" style="display: none;">
+                <button type="submit" id="predictBtn" class="container">Predict</button>
+            </div>
+        </div>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

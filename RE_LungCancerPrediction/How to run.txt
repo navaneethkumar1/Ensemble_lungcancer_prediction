@@ -1,0 +1,24 @@
+1)Run the following command to install all dependencies:
+
+pip install -r requirements.txt
+
+If any dependency issue arises then create a new ENV:
+
+python -m venv env
+
+then activate it:
+.\env\Scripts\Activate
+
+after activation try with step 1
+
+2)There are 2 flask python files: app.py for single model classification || multi.py for classification using multiple Models(Has most weightage in Research papers and Medical CS Industry practice)
+
+python app.py
+
+or 
+
+python multi.py
+
+Now your flask will be running on this port: http://127.0.0.1:5000/
+
+
