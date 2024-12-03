@@ -7,18 +7,18 @@ body, html {
 }
 
 .background {
-    background-image: url('../WhatsApp\ Image\ 2024-12-03\ at\ 19.49.30_4ade838b.jpg');
+    background-image: url('../Background.jpg');
     background-size: cover; /* Ensures the image covers the entire screen */
-    background-position: center; /* Keeps the image centered */
-    background-repeat: no-repeat; /* Prevents repeating the image */
+    background-position: center; 
+    background-repeat: no-repeat; 
     position: absolute;
     width: 100%;
-    height: 100%; /* Ensures full screen height */
+    height: 100%; 
     z-index: -1;
-    filter: blur(4px); /* Adds slight blur to the background */
+    filter: blur(4px); 
 }
 .heading{
-    font-size: 40px; /* Adjust size as needed */
+    font-size: 40px; 
     font-weight: bold;
     text-align: center;
 margin-top: 5px;
@@ -46,7 +46,7 @@ margin-top: 5px;
     border-radius: 15px;
     width: 80%;
     max-width: 500px;
-    box-shadow: 0 4px 20px rgb(86, 84, 84); /* Added box-shadow for depth */
+    box-shadow: 0 4px 20px rgb(67, 65, 65); /* Added box-shadow for depth */
 }
 
 h1 {
@@ -55,29 +55,24 @@ h1 {
     margin-bottom:30px;
 }
 input[type="file"] {
-    padding: 20px 40px; /* Adjust padding for larger input field */
+    padding: 20px 2px; /* Adjust padding for larger input field */
     font-size: 18px; /* Slightly larger font size */
     margin-bottom: 10px;
     border-radius: 15px; /* Rounded corners */
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.056); /* Semi-transparent background */
     color: #fff; /* White text color */
-    border: 2px solid #FF6500; /* Orange border */
-    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition effects */
-    cursor: pointer;
+    border: 2px solid #FF6500; 
+    padding-left: 60px;
 }
 
-input[type="file"]:hover {
-    background-color: rgba(255, 101, 0, 0.8); /* Highlight effect on hover */
-    border-color: #e64a19; /* Darker orange border on hover */
-}
 
-input[type="file"]::file-selector-button {
+
+input[type="file"]::file-selector-button{
     background-color: #FF6500; /* Orange button for file selector */
     color: white;
-    padding: 10px 20px;
+    padding: 10px 10px;
     border: none;
     border-radius: 10px;
-    cursor: pointer;
 }
 
 input[type="file"]::file-selector-button:hover {
@@ -85,23 +80,15 @@ input[type="file"]::file-selector-button:hover {
 }
 
 
-/* Style for the predict button */
-.predict-btn {
-    margin-top: 20px;
-    display: none;
-    width: auto;
-    text-align: center;
-}
 
-/* Style for submit button */
+
 button[type="submit"] {
-    padding: 10px 50px;
+    padding: 10px 60px;
     font-size: 20px;
     background-color: #FF6500;
     border-radius: 10px;
     color: white;
     border: none;
-    cursor: pointer;
     margin-left: 10px;
     align-content: center;
     transition: background-color 0.3s ease;
