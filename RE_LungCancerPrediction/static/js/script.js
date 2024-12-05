@@ -4,6 +4,8 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
     const fileInput = document.getElementById('imageInput');
     const file = fileInput.files[0];
     const resultElement = document.getElementById('result');
+    const severityElement = document.getElementById('severity');
+    const treatmentElement = document.getElementById('treatment');
     const predictButton = document.getElementById('predictBtn');
 
     if (!file) {
@@ -31,8 +33,12 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
             resultElement.innerText = `Error: ${data.error}`;
             resultElement.className = 'error';
         } else {
-            resultElement.innerText = `Prediction: ${data.prediction}`;
-            resultElement.className = '';
+            // Insert the prediction result into the HTML
+            resultElement.innerHTML = `<strong>Prediction:</strong> ${data.prediction}`;
+
+            // Insert the severity and treatment details into the HTML
+            severityElement.innerHTML = `<strong>Severity:</strong> ${data.severity}`;
+            treatmentElement.innerHTML = `<strong>Treatment:</strong> ${data.treatment}`;
         }
 
         // Show the prediction button after the image is uploaded

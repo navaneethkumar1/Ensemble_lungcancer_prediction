@@ -24,7 +24,7 @@ def preprocess_image(image, img_size=(64, 64)):
         print(f"Error: Unable to load image.")
         return None
 
-# Feature extraction function
+# Feature extraction functions
 def extract_histogram_features(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     hist = cv2.calcHist([gray], [0], None, [256], [0, 256]).flatten()
@@ -87,22 +87,19 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    label_encoder = {"Lung Adenocarcinoma": 0, "lung tissue": 1, "Lung Squamous Cell Carcinoma": 2}
+    label_encoder = {"Lung Adenocarcinoma": 0, "lung normal tissue": 1, "Lung Squamous Cell Carcinoma": 2}
     label_decoder = {v: k for k, v in label_encoder.items()}
 
     # Symptoms and treatment dictionary
     condition_info = {
         "lung_n": {
-            "symptoms": "No symptoms, normal lung tissue.",
-            "treatment": "No treatment required as this is a normal condition."
+            "treatment": "Consult a doctor for more details as this is normal lung tissue."
         },
         "lung_scc": {
-            "symptoms": "Persistent cough, chest pain, shortness of breath, blood in sputum, weight loss.",
-            "treatment": "Chemotherapy, radiation therapy, targeted therapy, and surgery (depending on stage)."
+            "treatment": "Treatment options include chemotherapy, radiation therapy, targeted therapy, and surgery. Consult with an oncologist for personalized treatment."
         },
         "lung_aca": {
-            "symptoms": "Coughing, difficulty breathing, chest pain, fatigue, weight loss.",
-            "treatment": "Surgery, chemotherapy, radiation therapy, and targeted therapies based on genetic mutations."
+            "treatment": "Treatment options include surgery, chemotherapy, radiation therapy, and targeted therapies based on genetic mutations. Consult with an oncologist for personalized treatment."
         }
     }
 
@@ -134,14 +131,16 @@ def predict():
 
         predicted_label = label_decoder.get(final_prediction, "Unknown")
 
-        # Get symptoms and treatment for the predicted label
-        condition = "lung_n" if predicted_label == "lung tissue" else ("lung_scc" if predicted_label == "Lung Squamous Cell Carcinoma" else "lung_aca")
-        symptoms = condition_info.get(condition, {}).get("symptoms", "No data available")
+        # Get treatment recommendation for the predicted label
+        condition = "lung_n" if predicted_label == "lung normal tissue" else ("lung_scc" if predicted_label == "Lung Squamous Cell Carcinoma" else "lung_aca")
         treatment = condition_info.get(condition, {}).get("treatment", "Consult a doctor for more details")
+
+        # Determine severity
+        severity = "None" if predicted_label == "lung normal tissue" else ("Moderate" if predicted_label == "Lung Squamous Cell Carcinoma" else "Severe")
 
         return jsonify({
             'prediction': predicted_label,
-            'symptoms': symptoms,
+            'severity': severity,
             'treatment': treatment,
             'average_scores': avg_prediction.tolist()
         })
